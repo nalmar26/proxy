@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "route": "/R1/",
+      "address": "http://localhost:8001/"
+    },
+    {
+      "route": "/R2",
+      "address": "http://localhost:8002"
+    },
+    {
+      "route": "/R3",
+      "address": "http://localhost:8003"
+    }
+  ]
+}
