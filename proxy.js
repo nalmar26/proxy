@@ -1,5 +1,5 @@
 const express = require('express');
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware} = require('http-proxy-middleware');
 
 const { routes } = require('./config.json');
 
@@ -8,8 +8,9 @@ const app = express();
 for (route of routes) {
 	console.log('route: %o',route);
     app.use(route.route,
-        proxy({
+        createProxyMiddleware({
             target: route.address,
+            changeOrigin: true,//Use this if you plan to use another host while redirecting
             pathRewrite: (path, req) => {
                 console.log('path: '+path);
                                                 
